@@ -1,0 +1,10 @@
+{% extends 'default.html' %}
+{% load news_filters %}
+{% block content %}
+<h1>News List</h1>
+<ul>
+    {% for news in news %}
+    <li><a href="{% url 'news_detail' news.id %}">{{ news.title }}</a> ({{ news.publication_date|date:"d.m.Y" }}) - {{ news.text|slice:":20" }}...</li>
+    {% endfor %}
+</ul>
+{% endblock %}
